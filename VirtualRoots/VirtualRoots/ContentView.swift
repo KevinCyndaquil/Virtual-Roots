@@ -48,13 +48,19 @@ struct ARViewContainer: UIViewControllerRepresentable {
 }
 
 class ARViewController: UIViewController {
-    var simulationTimer: Timer?
+    var simulation: VRController = .init()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        simulationTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(thread), userInfo: nil, repeats: true)
-        
+        simulation.timeControl = SimulationTimeControl(end: 10000.0)
+        simulation.nodes.append(contentsOf: [Corn(_id: 0)])
+        simulation.updateView = {
+            self.label.text = self.label.text == "HELLO" ? "WORLD" : "HELLO"
+        }
+        simulation.environments.append(VREnvironment(light: 200, temperature: 30, ground: VRGround(ph: 7, nitrogen: 300, phosphorus: 600, potassium: 300), atmosphere: VRAtmosphere(humidity: 70, carbonDioxide: 800)))
+        simulation.start()
+        print(simulation.status)
     }
     
     override func viewDidLoad() {
@@ -89,17 +95,7 @@ class ARViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        simulationTimer?.invalidate()
-        simulationTimer = nil
-    }
-    
-    @objc fileprivate func thread() {
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                self.label.text = self.label.text == "WORLD" ? "HELLO" : "WORLD"
-            }
-        }
+        simulation.finish()
     }
     
     let label = UILabel()

@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct MaxMin <T> {
+
+
+
+public struct MaxMin <T> {
     var max: T
     var min: T
 }
@@ -47,6 +50,14 @@ public class VRModel: Hashable {
         return []
     }
     
+    /**
+     Obtains the consume of this model, otherwise, obtains the average between max and min VREnvironment in currentPhase attribute
+     */
+    public func consume() -> VREnvironment {
+        guard let currentPhase = self.currentPhase else { return .zero }
+        return (currentPhase.environment.max + currentPhase.environment.min) / 2
+    }
+    
     public static func == (lhs: VRModel, rhs: VRModel) -> Bool {
         return lhs._id == rhs._id
     }
@@ -67,15 +78,14 @@ public class Corn: VRModel {
             VRModelPhase(name: "emergencia",
                          environment: MaxMin(max: VREnvironment(light: 400.0,
                                                                 temperature: 24.0,
-                                                                waterIrrigated: 0.59,
                                                                 ground: VRGround(ph: 7, nitrogen: 2.1, phosphorus: 3.8, potassium: 0.6),
                                                                 atmosphere: VRAtmosphere(humidity: 65.0, carbonDioxide: 1000.0)),
                                              min: VREnvironment(light: 200.0,
                                                                 temperature: 18.0,
-                                                                waterIrrigated: 0.59,
                                                                 ground: VRGround(ph: 6, nitrogen: 2.1, phosphorus: 3.8, potassium: 0.6),
                                                                 atmosphere: VRAtmosphere(humidity: 55.0, carbonDioxide: 415.0))),
                          phaseDuration: MaxMin(max: 1036800.0, min: 0.0)),
         ]
     }
 }
+
