@@ -96,13 +96,28 @@ struct ListPlantsUI: View {
                                 .padding(.horizontal, 30)
                                 .padding(.vertical, 10)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                HStack(alignment: .center, spacing: 10) {
-                                    Toggle(listPlantsViewModel.listPlants[index].name, isOn: $listPlantsViewModel.listPlants[index].isChecked)
-                                        .toggleStyle(CheckBoxToggleStyle())
+                                if listPlantsViewModel.listPlants[index].isChecked {
+                                    
+                                    HStack(alignment: .center, spacing: 10) {
+                                        Toggle(listPlantsViewModel.listPlants[index].name, isOn:
+                                                Binding(
+                                                        get: {
+                                                            // Aquí simplemente devuelves el valor actual.
+                                                            self.listPlantsViewModel.listPlants[index].isChecked
+                                                        },
+                                                        set: { newValue in
+                                                            // Aquí controlas el cambio: solo permites que el valor cambie si es para ponerlo en 'false'.
+                                                            if !newValue { // Si el nuevo valor es 'false', permites el cambio.
+                                                                self.listPlantsViewModel.listPlants[index].isChecked = newValue
+                                                            }
+                                                            // Si el nuevo valor es 'true', no haces nada (o podrías revertirlo, loguear un error, etc.).
+                                                        }
+                                                    ))
+                                            .toggleStyle(CheckBoxToggleStyle())
+                                    }
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 10)
                                 }
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
                             }
                             .padding(.horizontal, 40)
                             .padding(.top, 5)
@@ -112,7 +127,7 @@ struct ListPlantsUI: View {
                             .background(listPlantsViewModel.listPlants[index].isChecked ? Color(red: 0.83, green: 0.93, blue: 0.66) : Color.clear)
                             .cornerRadius(30)
                             .onTapGesture{
-                                listPlantsViewModel.listPlants[index].isChecked.toggle()
+                                listPlantsViewModel.toggleIsChecked(listPlantsViewModel.listPlants[index].id)
                                 print("HStack tocado!")
                             }
                         }
