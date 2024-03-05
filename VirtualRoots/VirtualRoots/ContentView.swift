@@ -11,37 +11,10 @@ import RealityKit
 
 struct ContentView : View {
     var body: some View {
-        ARViewContainer().ignoresSafeArea(.all)
+        HomeUI()
     }
 }
 
-struct ARViewContainer: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ARViewController
-    
-    class Coordinator {
-        var parent: ARViewContainer
-        var controller: UIViewController?
-        
-        init(_ parent: ARViewContainer) {
-            self.parent = parent
-        }
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    func makeUIViewController(context: Context) -> ARViewController {
-        let controller = ARViewController()
-        context.coordinator.controller = controller
-        
-        return controller
-        
-    }
-    
-    func updateUIViewController(_ uiViewController: ARViewController, context: Context) {
-    }
-}
 
 #Preview {
     ContentView()
@@ -77,11 +50,11 @@ class ARViewController: UIViewController {
         let material = SimpleMaterial(color: .gray, roughness: 0.15, isMetallic: true)
         let model = ModelEntity(mesh: mesh, materials: [material])
         model.transform.translation.y = 0.05
-
+        
         // Create horizontal plane anchor for the content
         let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
         anchor.children.append(model)
-
+        
         // Add the horizontal plane anchor to the scene
         arView.scene.anchors.append(anchor)
         
