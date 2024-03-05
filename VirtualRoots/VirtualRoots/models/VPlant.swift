@@ -14,11 +14,12 @@ struct VPlantJson:Decodable {
     let image: String
 }
 
-class VPlant {
+class VPlant : ObservableObject {
     let id : Int
     let name : String
     let description: String
     let image: String
+    @Published var isChecked: Bool = false
     
     // Inicializador que toma una estructura VPlant (que se decodifica del JSON)
     init(from vPlant: VPlantJson) {

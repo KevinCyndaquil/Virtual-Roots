@@ -3,25 +3,25 @@
     "id": 1,
     "name": "Corn",
     "description": "A cereal plant that yields large grains, or kernels, set in rows on a cob.",
-    "image": ""
+    "image": "maiz"
   },
   {
     "id": 2,
     "name": "Wheat",
     "description": "A cereal plant that is the most important kind grown in temperate countries, the grain of which is ground to make flour for bread, pasta, pastry, etc.",
-    "image": ""
+    "image": "maiz"
   },
   {
     "id": 3,
     "name": "Rice",
     "description": "A swamp grass which is widely cultivated as a source of food, especially in Asia.",
-    "image": ""
+    "image": "maiz"
   },
   {
     "id": 4,
     "name": "Barley",
     "description": "A hardy cereal that has coarse bristles extending from the ears. It is widely cultivated, chiefly for use in brewing and stockfeed.",
-    "image": ""
+    "image": "maiz"
   },
   {
     "id": 5,

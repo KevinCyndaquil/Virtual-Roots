@@ -8,31 +8,17 @@
 import Foundation
 import SwiftUI
 
+#Preview {
+    ListPlantsUI()
+}
+
 struct ListPlantsUI: View {
     private var virtualBold = "PlusJakartaSans-Regular_Bold"
     private var virtualLight = "PlusJakartaSans-Regular_Light"
     @StateObject var plantsViewModel = PlantsViewModel()
-    @Binding var showing: Bool
-    
-    private func loadBonesData() {
-        // Tu código para cargar los datos JSON...
-        if let path = Bundle.main.path(forResource: "plants", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let loadedPlants = try JSONDecoder().decode([VPlantJson].self, from: data)
-                // Convertir los VPlant decodificados a VPlantModel
-                let plantModels = loadedPlants.map { VPlant(from: $0) }
-                
-                
-            } catch {
-                // Si hay un error, imprimirlo en la consola
-                print("Error al cargar el archivo JSON: \(error)")
-            }
-        } else {
-            print("No se pudo encontrar el archivo JSON en el bundle.")
-        }
-    }
-    
+   @StateObject var listPlantsViewModel = PlantsListViewModel()
+  
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             VStack(alignment: .leading, spacing: 10) {
@@ -77,9 +63,65 @@ struct ListPlantsUI: View {
                 .padding(.horizontal, 40)
                 .padding(.vertical, 10)
                 .frame(maxWidth: .infinity, alignment: .center)
-                VStack(alignment: .center, spacing: 10) { }
+                ScrollView{
+                    VStack(alignment: .center, spacing: 10) {
+                        ForEach(listPlantsViewModel.listPlants.indices , id: \.self){ index in
+                            HStack(alignment: .center, spacing: 10) {
+                                VStack(alignment: .center, spacing: 0) {
+                                    VStack(alignment: .center, spacing: 0) {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .frame(width: 64, height: 64)
+                                            .background(
+                                                Image(listPlantsViewModel.listPlants[index].image)
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width: 64, height: 64)
+                                                    .clipped()
+                                            )
+                                    }
+                                    .padding(10)
+                                    .background(Color(red: 0.38, green: 0.56, blue: 0.13))
+                                    .cornerRadius(60)
+                                    
+                                }
+                                .padding(10)
+                                .background(Color(red: 0.38, green: 0.56, blue: 0.13))
+                                .cornerRadius(60)
+                                HStack(alignment: .center, spacing: 10) {
+                                    Text(listPlantsViewModel.listPlants[index].name)
+                                        .font(Font.custom("Plus Jakarta Sans", size: 29))
+                                        .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04))
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 10)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                HStack(alignment: .center, spacing: 10) {
+                                    Toggle(listPlantsViewModel.listPlants[index].name, isOn: $listPlantsViewModel.listPlants[index].isChecked)
+                                        .toggleStyle(CheckBoxToggleStyle())
+                                }
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                            }
+                            .padding(.horizontal, 40)
+                            .padding(.top, 5)
+                            .padding(.bottom, 10)
+                            .contentShape(Rectangle())
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .background(listPlantsViewModel.listPlants[index].isChecked ? Color(red: 0.83, green: 0.93, blue: 0.66) : Color.clear)
+                            .cornerRadius(30)
+                            .onTapGesture{
+                                listPlantsViewModel.listPlants[index].isChecked.toggle()
+                                print("HStack tocado!")
+                            }
+                        }
+                    }
                     .padding(10)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    
+                }
+                
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 34)
@@ -89,9 +131,28 @@ struct ListPlantsUI: View {
         .padding(0)
         .frame(width: 834, alignment: .center)
         .background(Color(red: 0.96, green: 0.98, blue: 0.92))
+        .toolbar(.hidden)
     }
     
     
+}
+
+struct CheckBoxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack{
+            RoundedRectangle(cornerRadius: 2.0)
+                .stroke(Color(red: 0.2, green: 0.29, blue: 0.11), lineWidth: 3)
+                .frame(width: 32, height: 32)
+                .overlay{
+                    Image(systemName: configuration.isOn ? "checkmark" : "")
+                }
+                .onTapGesture {
+                    withAnimation{
+                        configuration.isOn.toggle()
+                    }
+                }
+        }
+    }
 }
 
 
