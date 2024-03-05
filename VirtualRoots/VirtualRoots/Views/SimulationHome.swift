@@ -242,9 +242,6 @@ struct SimulationHomeUI: View {
         .padding(0)
         .frame(width: 834, height: 1194, alignment: .center)
         .background(Color(red: 0.96, green: 0.98, blue: 0.92))
-        .fullScreenCover(isPresented: $showingAddPlants, content: {
-            ListPlantsUI(plantsViewModel: plantsViewModel, showing: showingAddPlants)
-        })
     }
 }
 
