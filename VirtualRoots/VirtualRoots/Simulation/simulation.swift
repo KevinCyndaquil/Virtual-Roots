@@ -58,10 +58,20 @@ class VRSimulation {
     
     fileprivate func initNodes() {
         let water: VWater = VWater(quantity: 100.0)
-        let light: VLight = VLight(micromolesPerM2PerS: 20.0, temperature: VTemperature(quantity: 20.0))
+        let light: VLight = VLight(micromolesPerM2PerS: 20.0, temperature: VTemperature(quantity: -10))
         
-        light.action(VRAction.run {
+        light.act(action: VRAction.repeat(duration: 2.0, {
             light.consume(node: water)
+        }))
+        
+        let plant = VPlant(name: "corn", status: .init(name: "GOOD", phase: 0))
+        let phase = VPlant.Phase(name: "BABY", waterConsume: VPlant.Consume(absorb: VWater(quantity: 10), consume: VWater(quantity: 10), needed: VWater(quantity: 10)), lightConsume: VPlant.Consume(absorb: VLight(micromolesPerM2PerS: 10, temperature: .ENVIRONMENT), consume: VLight(micromolesPerM2PerS: 10, temperature: .ENVIRONMENT), needed: VLight(micromolesPerM2PerS: 10, temperature: .ENVIRONMENT)), nutrientsConsume: VPlant.Consume(absorb: [.K, .N, .P], consume: [.K, .N, .P], needed: [.K, .N, .P]), timeToGrowUp: 10000)
+        let ground:VGround = .CLAY
+        ground.weight = 1.0
+        plant.add(phase: phase)
+        
+        plant.act(action: VRAction.repeat {
+            plant.absorb(ground)
         })
         
         nodes.append(contentsOf: [water, light])

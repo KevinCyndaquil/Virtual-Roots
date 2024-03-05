@@ -8,6 +8,7 @@
 import Foundation
 
 protocol VROperable {
+    static func ==(lhs: Self, rhs: Self) -> Bool
     static func +=(lhs: Self, rhs: Self)
     static func -=(lhs: Self, rhs: Self)
     static func /=(lhs: Self, rhs: CGFloat)
