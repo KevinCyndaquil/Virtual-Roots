@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3058142B98D26400466BDE /* smallPlantTest.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0D3058122B98D26400466BDE /* smallPlantTest.usdz */; };
+		0D3058152B98D26400466BDE /* plantWithWaterAndDirt.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0D3058132B98D26400466BDE /* plantWithWaterAndDirt.usdz */; };
+		0D3058172B98E63300466BDE /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3058162B98E63300466BDE /* ButtonBar.swift */; };
 		0D3D2A592B96390D000C976B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D2A582B96390D000C976B /* Home.swift */; };
 		0D5EBB0C2B9265DC005E5A82 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EBB0B2B9265DC005E5A82 /* environment.swift */; };
 		0D5EBB0E2B92660C005E5A82 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EBB0D2B92660C005E5A82 /* model.swift */; };
 		0D5EBB102B9271C4005E5A82 /* simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EBB0F2B9271C4005E5A82 /* simulation.swift */; };
+		0DE246352B98D09900C829A8 /* Camara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE246342B98D09900C829A8 /* Camara.swift */; };
 		0DEBB8992B964279004C74D3 /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBB8982B964279004C74D3 /* FingerPaint-Regular.ttf */; };
 		0DEBB89B2B964737004C74D3 /* SimulationHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBB89A2B964737004C74D3 /* SimulationHome.swift */; };
 		0DEBB89D2B964EBB004C74D3 /* PlusJakartaSans-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBB89C2B964EBB004C74D3 /* PlusJakartaSans-VariableFont_wght.ttf */; };
@@ -18,7 +22,6 @@
 		0DEBB8A32B9665A5004C74D3 /* plants.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBB8A22B9665A5004C74D3 /* plants.json */; };
 		0DEBB8A62B966ADA004C74D3 /* viewModelPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBB8A52B966ADA004C74D3 /* viewModelPlants.swift */; };
 		0DEBB8A82B966F35004C74D3 /* ListPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBB8A72B966F35004C74D3 /* ListPlants.swift */; };
-		0DEBB8AA2B967058004C74D3 /* buttonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBB8A92B967058004C74D3 /* buttonBar.swift */; };
 		0DF62BEC2B97A37100D71632 /* viewModelListPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF62BEB2B97A37100D71632 /* viewModelListPlants.swift */; };
 		0DFB61342B9243A90055C9E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB61332B9243A90055C9E3 /* AppDelegate.swift */; };
 		0DFB61362B9243A90055C9E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB61352B9243A90055C9E3 /* ContentView.swift */; };
@@ -47,10 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D3058122B98D26400466BDE /* smallPlantTest.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = smallPlantTest.usdz; sourceTree = "<group>"; };
+		0D3058132B98D26400466BDE /* plantWithWaterAndDirt.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = plantWithWaterAndDirt.usdz; sourceTree = "<group>"; };
+		0D3058162B98E63300466BDE /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		0D3D2A582B96390D000C976B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0D5EBB0B2B9265DC005E5A82 /* environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = environment.swift; sourceTree = "<group>"; };
 		0D5EBB0D2B92660C005E5A82 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		0D5EBB0F2B9271C4005E5A82 /* simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simulation.swift; sourceTree = "<group>"; };
+		0DE246342B98D09900C829A8 /* Camara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camara.swift; sourceTree = "<group>"; };
 		0DEBB8982B964279004C74D3 /* FingerPaint-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FingerPaint-Regular.ttf"; sourceTree = "<group>"; };
 		0DEBB89A2B964737004C74D3 /* SimulationHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationHome.swift; sourceTree = "<group>"; };
 		0DEBB89C2B964EBB004C74D3 /* PlusJakartaSans-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -58,7 +65,6 @@
 		0DEBB8A22B9665A5004C74D3 /* plants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plants.json; sourceTree = "<group>"; };
 		0DEBB8A52B966ADA004C74D3 /* viewModelPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelPlants.swift; sourceTree = "<group>"; };
 		0DEBB8A72B966F35004C74D3 /* ListPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlants.swift; sourceTree = "<group>"; };
-		0DEBB8A92B967058004C74D3 /* buttonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonBar.swift; sourceTree = "<group>"; };
 		0DF62BEB2B97A37100D71632 /* viewModelListPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelListPlants.swift; sourceTree = "<group>"; };
 		0DFB61302B9243A90055C9E3 /* VirtualRoots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualRoots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFB61332B9243A90055C9E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,11 +106,12 @@
 		0D3D2A572B9637EB000C976B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0DE246332B98D08800C829A8 /* simulation */,
 				0DEBB8A42B966AA6004C74D3 /* viewModel */,
 				0D3D2A582B96390D000C976B /* Home.swift */,
 				0DEBB89A2B964737004C74D3 /* SimulationHome.swift */,
 				0DEBB8A72B966F35004C74D3 /* ListPlants.swift */,
-				0DEBB8A92B967058004C74D3 /* buttonBar.swift */,
+				0D3058162B98E63300466BDE /* ButtonBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +124,14 @@
 				0D5EBB0F2B9271C4005E5A82 /* simulation.swift */,
 			);
 			path = Simulation;
+			sourceTree = "<group>";
+		};
+		0DE246332B98D08800C829A8 /* simulation */ = {
+			isa = PBXGroup;
+			children = (
+				0DE246342B98D09900C829A8 /* Camara.swift */,
+			);
+			path = simulation;
 			sourceTree = "<group>";
 		};
 		0DEBB8962B964243004C74D3 /* Resources */ = {
@@ -148,6 +163,8 @@
 		0DEBB8A12B9664BF004C74D3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				0D3058132B98D26400466BDE /* plantWithWaterAndDirt.usdz */,
+				0D3058122B98D26400466BDE /* smallPlantTest.usdz */,
 				0DEBB8A22B9665A5004C74D3 /* plants.json */,
 			);
 			path = data;
@@ -331,6 +348,8 @@
 				0DFB61382B9243AA0055C9E3 /* Assets.xcassets in Resources */,
 				0DEBB89D2B964EBB004C74D3 /* PlusJakartaSans-VariableFont_wght.ttf in Resources */,
 				0DEBB8A32B9665A5004C74D3 /* plants.json in Resources */,
+				0D3058152B98D26400466BDE /* plantWithWaterAndDirt.usdz in Resources */,
+				0D3058142B98D26400466BDE /* smallPlantTest.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,12 +378,13 @@
 				0DFB61342B9243A90055C9E3 /* AppDelegate.swift in Sources */,
 				0DF62BEC2B97A37100D71632 /* viewModelListPlants.swift in Sources */,
 				0D5EBB102B9271C4005E5A82 /* simulation.swift in Sources */,
+				0D3058172B98E63300466BDE /* ButtonBar.swift in Sources */,
 				0DEBB8A82B966F35004C74D3 /* ListPlants.swift in Sources */,
 				0DEBB8A62B966ADA004C74D3 /* viewModelPlants.swift in Sources */,
 				0D5EBB0C2B9265DC005E5A82 /* environment.swift in Sources */,
+				0DE246352B98D09900C829A8 /* Camara.swift in Sources */,
 				0DEBB8A02B9662F4004C74D3 /* VPlant.swift in Sources */,
 				0D3D2A592B96390D000C976B /* Home.swift in Sources */,
-				0DEBB8AA2B967058004C74D3 /* buttonBar.swift in Sources */,
 				0DEBB89B2B964737004C74D3 /* SimulationHome.swift in Sources */,
 				0D5EBB0E2B92660C005E5A82 /* model.swift in Sources */,
 			);
@@ -527,9 +547,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VirtualRoots/Preview Content\"";
+				DEVELOPMENT_TEAM = KR259LGXQ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -544,8 +566,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.vroot.VirtualRoots;
+				PRODUCT_BUNDLE_IDENTIFIER = maguchi.VirtualRoots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,9 +580,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VirtualRoots/Preview Content\"";
+				DEVELOPMENT_TEAM = KR259LGXQ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -574,8 +599,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.vroot.VirtualRoots;
+				PRODUCT_BUNDLE_IDENTIFIER = maguchi.VirtualRoots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

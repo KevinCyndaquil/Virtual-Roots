@@ -17,10 +17,10 @@ struct ListPlantsUI: View {
     @Binding var navigationPath: NavigationPath
     
     public init(navigationPath: Binding<NavigationPath>, plantsViewModel: PlantsViewModel) {
-            _navigationPath = navigationPath
-            self.plantsViewModel = plantsViewModel
-       
-        }
+        _navigationPath = navigationPath
+        self.plantsViewModel = plantsViewModel
+        
+    }
     
     
     var body: some View {
@@ -66,16 +66,16 @@ struct ListPlantsUI: View {
                             .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04).opacity(0.5))
                         if(listPlantsViewModel.isMaximum){
                             if showMaxText {
-                                    Text("Max 6")
-                                        .font(Font.custom("VirtualLight", size: 18))
-                                        .foregroundColor(.red)
-                                        // Cuando se muestra, espera 3 segundos y luego oculta
-                                        .onAppear {
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                                showMaxText = false
-                                            }
+                                Text("Max 6")
+                                    .font(Font.custom("VirtualLight", size: 18))
+                                    .foregroundColor(.red)
+                                // Cuando se muestra, espera 3 segundos y luego oculta
+                                    .onAppear {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                            showMaxText = false
                                         }
-                                }
+                                    }
+                            }
                             
                         }
                         
@@ -155,19 +155,19 @@ struct ListPlantsUI: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 34)
             .frame(maxWidth: .infinity, minHeight: 1036, maxHeight: 1036, alignment: .topLeading)
-            NavBar()
+            NavBar(navigationPath: $navigationPath)
         }
         .padding(0)
         .frame(width: 834, alignment: .center)
         .background(Color(red: 0.96, green: 0.98, blue: 0.92))
         .toolbar(.hidden)
         .onAppear {
-                    self.listPlantsViewModel.updatePlantCheckStatus(from: self.plantsViewModel.plantsFavorite)
-                }
+            self.listPlantsViewModel.updatePlantCheckStatus(from: self.plantsViewModel.plantsFavorite)
+        }
     }
-    
-    
 }
+
+
 
 struct CheckBoxToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
