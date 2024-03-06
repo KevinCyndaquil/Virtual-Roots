@@ -165,19 +165,19 @@ struct SimulationHomeUI: View {
                     HStack(alignment: .center, spacing: 10) {
                         
                         NavigationLink(value: "ListPlants") { // Usamos una cadena como marcador, podría ser cualquier otro tipo relacionado.
-                                        HStack(alignment: .center, spacing: 10) {
-                                            Image("cruz")
-                                                .frame(width: 32, height: 32)
-                                        }
-                                        .padding(15)
-                                        .background(Color(red: 0.6, green: 0.81, blue: 0.28))
-                                        .cornerRadius(15)
-                                    }
-                                    .navigationDestination(for: String.self) { value in
-                                        if value == "ListPlants" {
-                                            ListPlantsUI(navigationPath: $navigationPath, plantsViewModel : plantsViewModel)
-                                        }
-                                    }
+                            HStack(alignment: .center, spacing: 10) {
+                                Image("cruz")
+                                    .frame(width: 32, height: 32)
+                            }
+                            .padding(15)
+                            .background(Color(red: 0.6, green: 0.81, blue: 0.28))
+                            .cornerRadius(15)
+                        }
+                        .navigationDestination(for: String.self) { value in
+                            if value == "ListPlants" {
+                                ListPlantsUI(navigationPath: $navigationPath, plantsViewModel : plantsViewModel)
+                            }
+                        }
                         
                         HStack(alignment: .center, spacing: 10) {
                             Text("Add plant")
@@ -215,9 +215,16 @@ struct SimulationHomeUI: View {
                                             )
                                     }
                                     .padding(10)
-                                    .frame(width: 170, height: 170, alignment: .center)
-                                    .background(Color(red: 0.24, green: 0.35, blue: 0.11))
+                                    .frame(width: 150, height: 150, alignment: .center)
+                                    .background(Color(red: 0.83, green: 0.93, blue: 0.66))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 34)
+                                            .inset(by: 1)
+                                            .stroke(Color.black, lineWidth: 2)
+                                        
+                                    )
                                     .cornerRadius(34)
+                                    
                                     VStack(alignment: .center, spacing: 0) {
                                         Text(model.name)
                                             .font(
@@ -228,10 +235,9 @@ struct SimulationHomeUI: View {
                                             .frame(maxWidth: .infinity, alignment: .top)
                                     }
                                     .padding(0)
-                                    .frame(width: 173, alignment: .top)
+                                    .frame(width: 150, alignment: .top)
                                 }
                                 .padding(10)
-                                .background(Color.gray)
                                 .cornerRadius(10)
                             }
                         }

@@ -31,6 +31,21 @@ class PlantsListViewModel: ObservableObject {
         }
     }
     
+    func updatePlantCheckStatus(from updatedPlants: [VPlant]) {
+            for updatedPlant in updatedPlants {
+                if let index = listPlants.firstIndex(where: { $0.id == updatedPlant.id }) {
+                    listPlants[index].isChecked = updatedPlant.isChecked
+                    print("Plantas marcadas como checked:")
+                       for plant in updatedPlants {
+                           print("ID: \(plant.id), Checked: \(plant.isChecked)")
+                       }
+                    listPlants = listPlants.map{$0}
+                }
+            }
+        }
+    
+    
+    
     func checked(index: Int) {
             // Contar cuántas plantas están marcadas como checked
             let checkedCount = listPlants.filter { $0.isChecked }.count

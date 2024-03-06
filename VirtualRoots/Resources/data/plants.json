@@ -1,122 +1,116 @@
 [
-  {
-    "id": 1,
-    "name": "Corn",
-    "description": "A cereal plant that yields large grains, or kernels, set in rows on a cob.",
-    "image": "maiz"
-  },
-  {
-    "id": 2,
-    "name": "Wheat",
-    "description": "A cereal plant that is the most important kind grown in temperate countries, the grain of which is ground to make flour for bread, pasta, pastry, etc.",
-    "image": "maiz"
-  },
-  {
-    "id": 3,
-    "name": "Rice",
-    "description": "A swamp grass which is widely cultivated as a source of food, especially in Asia.",
-    "image": "maiz"
-  },
-  {
-    "id": 4,
-    "name": "Barley",
-    "description": "A hardy cereal that has coarse bristles extending from the ears. It is widely cultivated, chiefly for use in brewing and stockfeed.",
-    "image": "maiz"
-  },
-  {
-    "id": 5,
-    "name": "Soybean",
-    "description": "A species of legume native to East Asia, widely grown for its edible bean which has numerous uses.",
-    "image": ""
-  },
-  {
-    "id": 6,
-    "name": "Oat",
-    "description": "A cereal plant cultivated chiefly in cool climates and widely used for animal feed as well as human consumption.",
-    "image": ""
-  },
-  {
-    "id": 7,
-    "name": "Rye",
-    "description": "A wheat-like cereal plant that tolerates poor soils and low temperatures.",
-    "image": ""
-  },
-  {
-    "id": 8,
-    "name": "Millet",
-    "description": "A fast-growing cereal plant that is widely grown in warm countries and regions with poor soils.",
-    "image": ""
-  },
-  {
-    "id": 9,
-    "name": "Sorghum",
-    "description": "A genus of flowering plants in the grass family, which includes species grown for grain, for fodder, and for the production of alcoholic beverages.",
-    "image": ""
-  },
-  {
-    "id": 10,
-    "name": "Buckwheat",
-    "description": "A plant cultivated for its grain-like seeds, and also used as a cover crop.",
-    "image": ""
-  },
-  {
-    "id": 11,
-    "name": "Sunflower",
-    "description": "A large annual forb of the genus Helianthus grown as a crop for its edible oil and seeds.",
-    "image": ""
-  },
-  {
-    "id": 12,
-    "name": "Canola",
-    "description": "A type of rapeseed that is low in erucic acid, as used for the production of canola oil and meal.",
-    "image": ""
-  },
-  {
-    "id": 13,
-    "name": "Flax",
-    "description": "A food and fiber crop cultivated in cooler regions of the world.",
-    "image": ""
-  },
-  {
-    "id": 14,
-    "name": "Peanut",
-    "description": "A legume crop grown mainly for its edible seeds, classified as a grain legume and also as an oil crop due to its high oil content.",
-    "image": ""
-  },
-  {
-    "id": 15,
-    "name": "Lentil",
-    "description": "An edible pulse typically known for its lens-shaped seeds.",
-    "image": ""
-  },
-  {
-    "id": 16,
-    "name": "Pea",
-    "description": "A small spherical seed or the seed-pod of the pod fruit Pisum sativum; each pod contains several peas.",
-    "image": ""
-  },
-  {
-    "id": 17,
-    "name": "Chickpea",
-    "description": "An annual legume of the family Fabaceae, subfamily Faboideae. Its seeds are high in protein.",
-    "image": ""
-  },
-  {
-    "id": 18,
-    "name": "Alfalfa",
-    "description": "A perennial flowering plant in the legume family, cultivated as an important forage crop in many countries around the world.",
-    "image": ""
-  },
-  {
-    "id": 19,
-    "name": "Clover",
-    "description": "A herbaceous, perennial plant which is often used in pastures for cattle feeding.",
-    "image": ""
-  },
-  {
-    "id": 20,
-    "name": "Quinoa",
-    "description": "An annual seed-producing flowering plant grown as a grain crop for its edible seeds.",
-    "image": ""
-  }
+    {
+        "id": 1,
+        "name": "Corn",
+        "description": "A cereal plant that yields large grains, or kernels, set in rows on a cob.",
+        "image": "maiz"
+    },
+    {
+        "id": 2,
+        "name": "Rambutan",
+        "description": "The rambutan is a tropical fruit native to Southeast Asia. It is similar in appearance to lychee, with a hairy outer skin and sweet, juicy flesh inside. The fruit is typically red or yellow when ripe and is enjoyed fresh or used in various culinary dishes and beverages.",
+        "image": "rambutan"
+    },
+    {
+        "id": 3,
+        "name": "Bean",
+        "description": "An essential legume in Mexican cuisine, with various varieties cultivated throughout the country.",
+        "image": "bean"
+    },
+    {
+        "id": 4,
+        "name": "Avocado",
+        "description": "Fruit native to Mexico, essential for gastronomy and highly valued in international markets.",
+        "image": "avocado"
+    },
+    {
+        "id": 5,
+        "name": "Chili",
+        "description": "An indispensable element in Mexican cuisine, with a wide variety of cultivated species.",
+        "image": "chili"
+    },
+    {
+        "id": 6,
+        "name": "Tomato",
+        "description": "Known locally as 'jitomate', it is widely used in Mexican cuisine.",
+        "image": "tomato"
+    },
+    {
+        "id": 8,
+        "name": "Nopal",
+        "description": "Edible cactus widely used in Mexican cuisine, symbolizing national culture.",
+        "image": "nopal"
+    },
+    {
+        "id": 9,
+        "name": "Papaya",
+        "description": "Tropical fruit cultivated on the coasts, popular in the local diet.",
+        "image": "papaya"
+    },
+    {
+        "id": 10,
+        "name": "Coffee",
+        "description": "Mainly cultivated in the southern and southeastern regions, it is an important export product.",
+        "image": "coffee"
+    },
+    {
+        "id": 11,
+        "name": "Sugarcane",
+        "description": "An important crop in sugar production and other by-products.",
+        "image": "sugarcane"
+    },
+    {
+        "id": 12,
+        "name": "Lemon",
+        "description": "Citrus fruit widely used in Mexican cuisine and beverages.",
+        "image": "lemon"
+    },
+    {
+        "id": 13,
+        "name": "Mango",
+        "description": "Very popular tropical fruit widely cultivated in various regions of the country.",
+        "image": "mango"
+    },
+    {
+        "id": 14,
+        "name": "Banana",
+        "description": "Fruit widely consumed and cultivated, especially in southern Mexico.",
+        "image": "banana"
+    },
+    {
+        "id": 15,
+        "name": "Cacao",
+        "description": "Base for chocolate production, mainly cultivated in the southeast.",
+        "image": "cacao"
+    },
+    {
+        "id": 16,
+        "name": "Watermelon",
+        "description": "Seasonal fruit, mainly cultivated in warm climates.",
+        "image": "watermelon"
+    },
+    {
+        "id": 17,
+        "name": "Melon",
+        "description": "Another warm climate fruit, cultivated in various regions of Mexico.",
+        "image": "melon"
+    },
+    {
+        "id": 18,
+        "name": "Papaya",
+        "description": "A smaller variety of papaya, popular in certain areas.",
+        "image": "papaya"
+    },
+    {
+        "id": 19,
+        "name": "Tamarind",
+        "description": "Fruit used in beverages and sweets, popular in various regions.",
+        "image": "tamarind"
+    },
+    {
+        "id": 20,
+        "name": "Guava",
+        "description": "Tropical fruit cultivated in various regions, used in a wide variety of dishes and beverages.",
+        "image": "guava"
+    }
 ]

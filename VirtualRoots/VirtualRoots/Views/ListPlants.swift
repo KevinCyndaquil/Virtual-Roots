@@ -19,10 +19,12 @@ struct ListPlantsUI: View {
     public init(navigationPath: Binding<NavigationPath>, plantsViewModel: PlantsViewModel) {
             _navigationPath = navigationPath
             self.plantsViewModel = plantsViewModel
+       
         }
     
     
     var body: some View {
+        
         VStack(alignment: .center, spacing: 0) {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(alignment: .center, spacing: 10) {
@@ -159,6 +161,9 @@ struct ListPlantsUI: View {
         .frame(width: 834, alignment: .center)
         .background(Color(red: 0.96, green: 0.98, blue: 0.92))
         .toolbar(.hidden)
+        .onAppear {
+                    self.listPlantsViewModel.updatePlantCheckStatus(from: self.plantsViewModel.plantsFavorite)
+                }
     }
     
     
