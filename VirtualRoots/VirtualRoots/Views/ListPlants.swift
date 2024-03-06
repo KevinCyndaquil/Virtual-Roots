@@ -8,17 +8,20 @@
 import Foundation
 import SwiftUI
 
-#Preview {
-    ListPlantsUI()
-}
-
 struct ListPlantsUI: View {
     private var virtualBold = "PlusJakartaSans-Regular_Bold"
     private var virtualLight = "PlusJakartaSans-Regular_Light"
-    @StateObject var plantsViewModel = PlantsViewModel()
-   @StateObject var listPlantsViewModel = PlantsListViewModel()
-  
-
+    @StateObject var listPlantsViewModel = PlantsListViewModel()
+    @ObservedObject var plantsViewModel : PlantsViewModel
+    @State private var showMaxText = true
+    @Binding var navigationPath: NavigationPath
+    
+    public init(navigationPath: Binding<NavigationPath>, plantsViewModel: PlantsViewModel) {
+            _navigationPath = navigationPath
+            self.plantsViewModel = plantsViewModel
+        }
+    
+    
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             VStack(alignment: .leading, spacing: 10) {
@@ -29,6 +32,10 @@ struct ListPlantsUI: View {
                         
                     }
                     .padding(10)
+                    .onTapGesture {
+                        navigationPath.removeLast()
+                        plantsViewModel.plantsFavorite = listPlantsViewModel.getCheckedPlants();
+                    }
                     HStack(alignment: .center, spacing: 10) {  }
                         .padding(.horizontal, 0)
                         .padding(.vertical, 10)
@@ -55,6 +62,21 @@ struct ListPlantsUI: View {
                                 Font.custom(virtualLight, size: 24)
                             )
                             .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04).opacity(0.5))
+                        if(listPlantsViewModel.isMaximum){
+                            if showMaxText {
+                                    Text("Max 6")
+                                        .font(Font.custom("VirtualLight", size: 18))
+                                        .foregroundColor(.red)
+                                        // Cuando se muestra, espera 3 segundos y luego oculta
+                                        .onAppear {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                                showMaxText = false
+                                            }
+                                        }
+                                }
+                            
+                        }
+                        
                     }
                     .padding(.horizontal, 0)
                     .padding(.vertical, 20)
@@ -96,28 +118,18 @@ struct ListPlantsUI: View {
                                 .padding(.horizontal, 30)
                                 .padding(.vertical, 10)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                if listPlantsViewModel.listPlants[index].isChecked {
-                                    
+                                
+                                if(listPlantsViewModel.listPlants[index].isChecked){
                                     HStack(alignment: .center, spacing: 10) {
                                         Toggle(listPlantsViewModel.listPlants[index].name, isOn:
-                                                Binding(
-                                                        get: {
-                                                            // Aquí simplemente devuelves el valor actual.
-                                                            self.listPlantsViewModel.listPlants[index].isChecked
-                                                        },
-                                                        set: { newValue in
-                                                            // Aquí controlas el cambio: solo permites que el valor cambie si es para ponerlo en 'false'.
-                                                            if !newValue { // Si el nuevo valor es 'false', permites el cambio.
-                                                                self.listPlantsViewModel.listPlants[index].isChecked = newValue
-                                                            }
-                                                            // Si el nuevo valor es 'true', no haces nada (o podrías revertirlo, loguear un error, etc.).
-                                                        }
-                                                    ))
-                                            .toggleStyle(CheckBoxToggleStyle())
+                                                $listPlantsViewModel.listPlants[index].isChecked
+                                        )
+                                        .toggleStyle(CheckBoxToggleStyle())
                                     }
                                     .padding(.horizontal, 20)
                                     .padding(.vertical, 10)
                                 }
+                                
                             }
                             .padding(.horizontal, 40)
                             .padding(.top, 5)
@@ -127,7 +139,7 @@ struct ListPlantsUI: View {
                             .background(listPlantsViewModel.listPlants[index].isChecked ? Color(red: 0.83, green: 0.93, blue: 0.66) : Color.clear)
                             .cornerRadius(30)
                             .onTapGesture{
-                                listPlantsViewModel.toggleIsChecked(listPlantsViewModel.listPlants[index].id)
+                                listPlantsViewModel.checked(index: index)
                                 print("HStack tocado!")
                             }
                         }

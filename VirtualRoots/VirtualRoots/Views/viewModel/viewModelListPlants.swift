@@ -9,7 +9,7 @@ import Foundation
 
 class PlantsListViewModel: ObservableObject {
     @Published var listPlants: [VPlant]
-    let maxSelections = 6
+    @Published var isMaximum : Bool = false
     
     init() {
         if let path = Bundle.main.path(forResource: "plants", ofType: "json") {
@@ -31,17 +31,22 @@ class PlantsListViewModel: ObservableObject {
         }
     }
     
-    func toggleIsChecked(for plantId: Int) {
-        // Contar cuántas plantas ya están seleccionadas
-        let selectedCount = listPlants.filter { $0.isChecked }.count
-        
-        // Encontrar índice de la planta que se quiere cambiar
-        if let index = listPlants.firstIndex(where: { $0.id == plantId }) {
-            if selectedCount < maxSelections {
-                listPlants[index].isChecked.toggle()
-            }
-            // Opcional: Agregar lógica aquí si quieres informar al usuario que no se puede seleccionar más elementos
+    func checked(index: Int) {
+            // Contar cuántas plantas están marcadas como checked
+            let checkedCount = listPlants.filter { $0.isChecked }.count
+        print("estas estas como verdaderas \(checkedCount)")
+        print("el que tocaste estaba como  \(listPlants[index].isChecked)")
+                if checkedCount < 6  {
+                    listPlants[index].isChecked = true;
+                    print("se puso \(listPlants[index].isChecked)")
+                    listPlants = listPlants.map { $0 }
+                    isMaximum = false
+                }else{
+                    isMaximum = true
+                }
         }
-    }
     
+    func getCheckedPlants() -> [VPlant] {
+        return listPlants.filter { $0.isChecked }
+    }
 }

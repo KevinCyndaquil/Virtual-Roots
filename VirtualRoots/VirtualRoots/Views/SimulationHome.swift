@@ -13,9 +13,10 @@ struct SimulationHomeUI: View {
     private var virtualBold = "PlusJakartaSans-Regular_Bold"
     private var virtualLight = "PlusJakartaSans-Regular_Light"
     @StateObject var plantsViewModel = PlantsViewModel()
+    @State private var navigationPath = NavigationPath()
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $navigationPath){
             // Agrega los elementos SwiftUI que quieras aquí
             VStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 10) {
@@ -163,15 +164,20 @@ struct SimulationHomeUI: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     HStack(alignment: .center, spacing: 10) {
                         
-                        NavigationLink(destination: ListPlantsUI() ){
-                            HStack(alignment: .center, spacing: 10) {
-                                Image("cruz")
-                                    .frame(width: 32, height: 32)
-                            }
-                            .padding(15)
-                            .background(Color(red: 0.6, green: 0.81, blue: 0.28))
-                            .cornerRadius(15)
-                        }
+                        NavigationLink(value: "ListPlants") { // Usamos una cadena como marcador, podría ser cualquier otro tipo relacionado.
+                                        HStack(alignment: .center, spacing: 10) {
+                                            Image("cruz")
+                                                .frame(width: 32, height: 32)
+                                        }
+                                        .padding(15)
+                                        .background(Color(red: 0.6, green: 0.81, blue: 0.28))
+                                        .cornerRadius(15)
+                                    }
+                                    .navigationDestination(for: String.self) { value in
+                                        if value == "ListPlants" {
+                                            ListPlantsUI(navigationPath: $navigationPath, plantsViewModel : plantsViewModel)
+                                        }
+                                    }
                         
                         HStack(alignment: .center, spacing: 10) {
                             Text("Add plant")
