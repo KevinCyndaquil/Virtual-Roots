@@ -50,6 +50,8 @@ class VRActuable {
     var actions: [VRAction] = []
     
     fileprivate func run() {
+        let actions = actions
+            .filter({ $0.isLoopeable == false })
         if actions.isEmpty { return }
         
         for act in actions {
@@ -60,9 +62,17 @@ class VRActuable {
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + act.duration, execute: { act.run() })
             break
         }
-        actions.removeAll(where: { 
-            //print($0)
-            return $0.finished == true })
+        self.actions
+            .removeAll(where: { $0.finished == true })
+    }
+    
+    fileprivate func runLoopers() {
+        let loopers = actions
+            .filter({$0.isLoopeable == true})
+        
+        loopers.forEach({ l -> Void in
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + l.duration, execute: { l.run() })
+        })
     }
     
     func act(action: VRAction) {
@@ -86,6 +96,7 @@ class VNode: VRActuable {
     
     func execute() {
         run()
+        runLoopers()
     }
     
     func kill() {
@@ -174,13 +185,6 @@ class VWater: VNode, VROperable {
         self.quantity = quantity
         self.space = space
         self.temperature = temperature
-        
-        super.init()
-        act(action: VRAction.repeat(key: "water-state-changing") {
-            if self.state == .FLUID { return }
-            if self.state == .GAS { self.quantity /= 2 }
-            if self.state == .SOLID { self.space *= 1.1 }
-        })
     }
     
     /**
@@ -250,8 +254,8 @@ class VLight: VNode {
         case BLACK
     }
     
-    init(micromolesPerM2PerS: CGFloat, temperature: VTemperature) {
-        self.micromolesPerMeter2PerSecond = micromolesPerM2PerS
+    init(quantity: CGFloat, temperature: VTemperature) {
+        self.micromolesPerMeter2PerSecond = quantity
         self.temperature = temperature
     }
     
@@ -355,7 +359,7 @@ class VGround: VNode {
         self.cic = cic
         
         super.init()
-        act(action: VRAction.repeat(key: "ground-water-filtering") {
+        act(action: VRAction.repeat(key: "groundswater-filtering") {
             if self.waterHeld.quantity <= self.waterAbsorption.quantity { return }
             self.waterHeld -= self.waterFilter
         })
@@ -393,8 +397,8 @@ class VPlant: VNode {
     var currentPhase: Phase?
     
     fileprivate var secondsOfLive: CGFloat
-    var age: CGFloat { secondsOfLive / 60.0 / 60.0 / 24.0 }
-    var status: Status
+    var age: CGFloat { secondsOfLive }
+    var status: Status = .none
     
     var waterAbsorbed: VWater
     var temperature: VTemperature
@@ -402,15 +406,19 @@ class VPlant: VNode {
     
     var description: String?
     
-    init(name: String, status: Status) {
+    init(name: String, timeOfSimulation: CGFloat) {
         self.name = name
         self.secondsOfLive = 0.0
-        self.status = status
         self.waterAbsorbed = VWater(quantity: 0)
         self.temperature = VTemperature(quantity: 0)
         
         super.init()
-        act(action: VRAction.repeat(key: "plant-absorb-water") {
+        
+        act(action: VRAction.repeat(key: "plant-growing", duration: timeOfSimulation) {
+            self.secondsOfLive += timeOfSimulation
+        })
+        
+        act(action: VRAction.repeat(key: "plant-absorbing-water", duration: timeOfSimulation) {
             guard let phase = self.currentPhase else { return }
             
             // if the consume of water is less than water absorbed
@@ -424,7 +432,7 @@ class VPlant: VNode {
             self.waterAbsorbed -= phase.waterConsume.consume
         })
         
-        act(action: VRAction.repeat(key: "plant-absorb-nutrient") {
+        act(action: VRAction.repeat(key: "plant-absorbing-nutrient", duration: timeOfSimulation) {
             guard let phase = self.currentPhase else { return }
             
             phase.nutrientsConsume.consume.forEach({(nutConsume) -> Void in
@@ -462,17 +470,10 @@ class VPlant: VNode {
     }
     
     func absorb(_ ground: VGround) {
-        act(action: VRAction.repeat(key: "absorb\(ground.name)") {
-            // here add logic about eat nutrients and water
-            print("absorbing...")
-        })
+        print("\(name) absorbing...")
     }
     
     struct Consume <N> {
-        /**
-         It is the absorbtion factor of N
-         */
-        var absorb: N
         /**
          It is the average consume of N
          */
@@ -482,8 +483,7 @@ class VPlant: VNode {
          */
         var needed: N
         
-        init(absorb: N, consume: N, needed: N) {
-            self.absorb = absorb
+        init(consume: N, needed: N) {
             self.consume = consume
             self.needed = needed
         }
@@ -521,24 +521,31 @@ class VPlant: VNode {
         var waterConsume: Consume<VWater>
         var lightConsume: Consume<VLight>
         var nutrientsConsume: Consume<[VNutrient]>
-        var timeToGrowUp: CGFloat
+        var maxAge: CGFloat
         var start: CGFloat = 0.0
         var ended: CGFloat?
         var resiliences: [Resilience] = []
         
         var description: String?
+        var modelName: String
         
-        init(name: String, waterConsume: Consume<VWater>, lightConsume: Consume<VLight>, nutrientsConsume: Consume<[VNutrient]>, timeToGrowUp: CGFloat) {
+        init(name: String, waterConsume: Consume<VWater>, lightConsume: Consume<VLight>, nutrientsConsume: Consume<[VNutrient]>, maxAge: CGFloat, modelName: String) {
             self.name = name
             self.waterConsume = waterConsume
             self.lightConsume = lightConsume
             self.nutrientsConsume = nutrientsConsume
-            self.timeToGrowUp = timeToGrowUp
+            self.maxAge = maxAge
+            self.modelName = modelName
         }
     }
     
-    struct Status {
-        let name: String
-        let phase: Int
+    /**
+     The status of any plant, like dry,  wet, etc.
+     */
+    enum Status {
+        case none
+        case dry
+        case normal
+        case wet
     }
 }
