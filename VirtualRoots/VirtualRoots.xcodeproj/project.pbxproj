@@ -10,10 +10,12 @@
 		0D3058142B98D26400466BDE /* smallPlantTest.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0D3058122B98D26400466BDE /* smallPlantTest.usdz */; };
 		0D3058152B98D26400466BDE /* plantWithWaterAndDirt.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0D3058132B98D26400466BDE /* plantWithWaterAndDirt.usdz */; };
 		0D3058172B98E63300466BDE /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3058162B98E63300466BDE /* ButtonBar.swift */; };
+		0D32103C2B9931C8000EAB8F /* grownCacaoTree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0D32103B2B9931C8000EAB8F /* grownCacaoTree.usdz */; };
 		0D3D2A592B96390D000C976B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D2A582B96390D000C976B /* Home.swift */; };
 		0D5EBB0C2B9265DC005E5A82 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EBB0B2B9265DC005E5A82 /* environment.swift */; };
 		0D5EBB0E2B92660C005E5A82 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EBB0D2B92660C005E5A82 /* model.swift */; };
 		0D5EBB102B9271C4005E5A82 /* simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EBB0F2B9271C4005E5A82 /* simulation.swift */; };
+		0DBEF5B82B98FD6E00A807A8 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEF5B72B98FD6E00A807A8 /* Loading.swift */; };
 		0DE246352B98D09900C829A8 /* Camara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE246342B98D09900C829A8 /* Camara.swift */; };
 		0DEBB8992B964279004C74D3 /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBB8982B964279004C74D3 /* FingerPaint-Regular.ttf */; };
 		0DEBB89B2B964737004C74D3 /* SimulationHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBB89A2B964737004C74D3 /* SimulationHome.swift */; };
@@ -53,10 +55,12 @@
 		0D3058122B98D26400466BDE /* smallPlantTest.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = smallPlantTest.usdz; sourceTree = "<group>"; };
 		0D3058132B98D26400466BDE /* plantWithWaterAndDirt.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = plantWithWaterAndDirt.usdz; sourceTree = "<group>"; };
 		0D3058162B98E63300466BDE /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
+		0D32103B2B9931C8000EAB8F /* grownCacaoTree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = grownCacaoTree.usdz; sourceTree = "<group>"; };
 		0D3D2A582B96390D000C976B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0D5EBB0B2B9265DC005E5A82 /* environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = environment.swift; sourceTree = "<group>"; };
 		0D5EBB0D2B92660C005E5A82 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		0D5EBB0F2B9271C4005E5A82 /* simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simulation.swift; sourceTree = "<group>"; };
+		0DBEF5B72B98FD6E00A807A8 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		0DE246342B98D09900C829A8 /* Camara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camara.swift; sourceTree = "<group>"; };
 		0DEBB8982B964279004C74D3 /* FingerPaint-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FingerPaint-Regular.ttf"; sourceTree = "<group>"; };
 		0DEBB89A2B964737004C74D3 /* SimulationHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationHome.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				0DEBB89A2B964737004C74D3 /* SimulationHome.swift */,
 				0DEBB8A72B966F35004C74D3 /* ListPlants.swift */,
 				0D3058162B98E63300466BDE /* ButtonBar.swift */,
+				0DBEF5B72B98FD6E00A807A8 /* Loading.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				0D3058132B98D26400466BDE /* plantWithWaterAndDirt.usdz */,
 				0D3058122B98D26400466BDE /* smallPlantTest.usdz */,
+				0D32103B2B9931C8000EAB8F /* grownCacaoTree.usdz */,
 				0DEBB8A22B9665A5004C74D3 /* plants.json */,
 			);
 			path = data;
@@ -346,6 +352,7 @@
 				0DEBB8992B964279004C74D3 /* FingerPaint-Regular.ttf in Resources */,
 				0DFB613B2B9243AA0055C9E3 /* Preview Assets.xcassets in Resources */,
 				0DFB61382B9243AA0055C9E3 /* Assets.xcassets in Resources */,
+				0D32103C2B9931C8000EAB8F /* grownCacaoTree.usdz in Resources */,
 				0DEBB89D2B964EBB004C74D3 /* PlusJakartaSans-VariableFont_wght.ttf in Resources */,
 				0DEBB8A32B9665A5004C74D3 /* plants.json in Resources */,
 				0D3058152B98D26400466BDE /* plantWithWaterAndDirt.usdz in Resources */,
@@ -378,6 +385,7 @@
 				0DFB61342B9243A90055C9E3 /* AppDelegate.swift in Sources */,
 				0DF62BEC2B97A37100D71632 /* viewModelListPlants.swift in Sources */,
 				0D5EBB102B9271C4005E5A82 /* simulation.swift in Sources */,
+				0DBEF5B82B98FD6E00A807A8 /* Loading.swift in Sources */,
 				0D3058172B98E63300466BDE /* ButtonBar.swift in Sources */,
 				0DEBB8A82B966F35004C74D3 /* ListPlants.swift in Sources */,
 				0DEBB8A62B966ADA004C74D3 /* viewModelPlants.swift in Sources */,

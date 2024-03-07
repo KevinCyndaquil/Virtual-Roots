@@ -187,12 +187,18 @@ struct SimulationHomeUI: View {
                     .padding(.horizontal, 30)
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .onTapGesture {
+                        navigationPath.append("List")
+                    }
                     HStack(alignment: .center, spacing: 10) {
                         Image("flechaDerecha")
                             .frame(width: 20.56857, height: 36)
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
+                    .onTapGesture {
+                        navigationPath.append("List")
+                    }
                 }
                 .padding(.horizontal, 40)
                 .padding(.top, 5)
@@ -204,26 +210,25 @@ struct SimulationHomeUI: View {
                             VStack(alignment: .leading, spacing: 12) {
                                 VStack(alignment: .center, spacing: 0) {
                                     Rectangle()
-                                        .foregroundColor(.clear)
-                                        .frame(width: 150, height: 150)
-                                        .background(
-                                            Image("maiz")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width: 150, height: 150)
-                                                .clipped()
-                                        )
+                                      .foregroundColor(.clear)
+                                      .frame(width: 160, height: 160)
+                                      .background(
+                                        Image(model.image)
+                                          .resizable()
+                                          .aspectRatio(contentMode: .fill)
+                                          .frame(width: 160, height: 160)
+                                          .clipped()
+                                      )
                                 }
                                 .padding(10)
-                                .frame(width: 150, height: 150, alignment: .center)
+                                .frame(width: 170, height: 170, alignment: .center)
                                 .background(Color(red: 0.83, green: 0.93, blue: 0.66))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 34)
-                                        .inset(by: 1)
-                                        .stroke(Color.black, lineWidth: 2)
-                                    
-                                )
                                 .cornerRadius(34)
+                                .overlay(
+                                  RoundedRectangle(cornerRadius: 34)
+                                    .inset(by: 1)
+                                    .stroke(Color(red: 0.6, green: 0.81, blue: 0.28), lineWidth: 2)
+                                )
                                 
                                 VStack(alignment: .center, spacing: 0) {
                                     Text(model.name)
@@ -242,6 +247,7 @@ struct SimulationHomeUI: View {
                         }
                     }
                     .padding(10)
+                    .padding(.bottom, 5)
                 }
                 
             }

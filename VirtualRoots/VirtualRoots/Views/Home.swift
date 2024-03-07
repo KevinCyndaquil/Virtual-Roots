@@ -45,7 +45,7 @@ struct HomeUI: View {
                                 rotation = 360
                             }
                             // Programar la llamada al método después de 2 segundos
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.62) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.62) {
                                 navigationPath.append(1)
                             }
                         }

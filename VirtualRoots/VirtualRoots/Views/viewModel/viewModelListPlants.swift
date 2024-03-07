@@ -9,6 +9,7 @@ import Foundation
 
 class PlantsListViewModel: ObservableObject {
     @Published var listPlants: [VPlant]
+    let list : [VPlant]
     @Published var isMaximum : Bool = false
     
     init() {
@@ -20,14 +21,17 @@ class PlantsListViewModel: ObservableObject {
                 let plants = loadedPlants.map { VPlant(from: $0) }
                 
                 self.listPlants = plants
+                self.list = plants
             } catch {
                 // Si hay un error, imprimirlo en la consola
                 print("Error al cargar el archivo JSON: \(error)")
                 self.listPlants = []
+                self.list = []
             }
         } else {
             print("No se pudo encontrar el archivo JSON en el bundle.")
             self.listPlants = []
+            self.list = []
         }
     }
     
@@ -63,5 +67,15 @@ class PlantsListViewModel: ObservableObject {
     
     func getCheckedPlants() -> [VPlant] {
         return listPlants.filter { $0.isChecked }
+    }
+    
+    func filterName(name : String){
+        print(name)
+        if(name.isEmpty) {
+            listPlants = list;
+            return
+        }
+        
+        listPlants = list.filter{$0.name.lowercased().contains(name.lowercased())}
     }
 }

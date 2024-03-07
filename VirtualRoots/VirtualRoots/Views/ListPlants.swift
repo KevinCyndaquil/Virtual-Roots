@@ -15,7 +15,9 @@ struct ListPlantsUI: View {
     @ObservedObject var plantsViewModel : PlantsViewModel
     @State private var showMaxText = true
     @Binding var navigationPath: NavigationPath
-    
+    @State private var isSearching = false
+    @State private var searchText = ""
+    @State private var smaller = false
     public init(navigationPath: Binding<NavigationPath>, plantsViewModel: PlantsViewModel) {
         _navigationPath = navigationPath
         self.plantsViewModel = plantsViewModel
@@ -24,7 +26,6 @@ struct ListPlantsUI: View {
     
     
     var body: some View {
-        
         VStack(alignment: .center, spacing: 0) {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(alignment: .center, spacing: 10) {
@@ -38,19 +39,80 @@ struct ListPlantsUI: View {
                         navigationPath.removeLast()
                         plantsViewModel.plantsFavorite = listPlantsViewModel.getCheckedPlants();
                     }
-                    HStack(alignment: .center, spacing: 10) {  }
-                        .padding(.horizontal, 0)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity, minHeight: 43, maxHeight: 43, alignment: .center)
-                    HStack(alignment: .center, spacing: 10) {
-                        Image("searchMin")
-                            .frame(width: 50, height: 50.00977)
-                        
+                    if(isSearching){
+                        HStack(alignment: .center, spacing: 10) {
+                            HStack(alignment: .center, spacing: 0) {
+                                HStack(alignment: .center, spacing: 30) {
+                                    HStack(alignment: .center, spacing: 10) {
+                                        Image("searchMin")
+                                            .frame(width: 42, height: 42.00821)
+                                        
+                                    }
+                                    .padding(10)
+                                    ZStack(alignment: .leading){
+                                        if searchText.isEmpty{
+                                            Text("Search...")
+                                                .font(
+                                                    Font.custom(virtualLight, size: 36)
+                                                )
+                                                .foregroundColor(Color(red: 0.2, green: 0.29, blue: 0.11).opacity(0.5))
+                                        }
+                                        TextField("", text: $searchText, onEditingChanged: { isEditing in
+                                            // isEditing es true cuando el TextField empieza a editarse, y false cuando termina
+                                            if isEditing {
+                                                // El teclado acaba de aparecer
+                                                smaller = true
+                                            } else {
+                                                // El teclado acaba de desaparecer
+                                                smaller = false
+                                            }
+                                        })
+                                        .frame(maxWidth: 180, maxHeight: 40)
+                                        .foregroundStyle(Color.black)
+                                        .font(
+                                            Font.custom("Plus Jakarta Sans", size: 26)
+                                        )
+                                        .onChange(of: searchText, perform: { value in
+                                            listPlantsViewModel.filterName(name: value)
+                                        })
+                                        
+                                        
+                                        
+                                    }
+                                    
+                                }
+                                .padding(0)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 14)
+                            .frame(width: 588, alignment: .leading)
+                            .background(Color(red: 0.91, green: 0.96, blue: 0.82))
+                            .cornerRadius(25)
+                        }
+                        .padding(0)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    }else{
+                        HStack(alignment: .center, spacing: 10) {  }
+                            .padding(.horizontal, 0)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity, minHeight: 43, maxHeight: 43, alignment: .center)
+                        HStack(alignment: .center, spacing: 10) {
+                            Image("searchMin")
+                                .frame(width: 50, height: 50.00977)
+                            
+                        }
+                        .padding(10)
+                        .onTapGesture {
+                            withAnimation{
+                                isSearching = true
+                            }
+                        }
                     }
-                    .padding(10)
                 }
                 .padding(.horizontal, 40)
                 .padding(.vertical, 10)
+                .padding(.top, smaller ? 150 : 10)
                 .frame(maxWidth: .infinity, alignment: .center)
                 HStack(alignment: .center, spacing: 10) {
                     VStack(alignment: .leading, spacing: 10) {
@@ -156,6 +218,7 @@ struct ListPlantsUI: View {
             .padding(.vertical, 34)
             .frame(maxWidth: .infinity, minHeight: 1036, maxHeight: 1036, alignment: .topLeading)
             NavBar(navigationPath: $navigationPath)
+            
         }
         .padding(0)
         .frame(width: 834, alignment: .center)
@@ -164,6 +227,8 @@ struct ListPlantsUI: View {
         .onAppear {
             self.listPlantsViewModel.updatePlantCheckStatus(from: self.plantsViewModel.plantsFavorite)
         }
+        
+        
     }
 }
 
@@ -177,6 +242,7 @@ struct CheckBoxToggleStyle: ToggleStyle {
                 .frame(width: 32, height: 32)
                 .overlay{
                     Image(systemName: configuration.isOn ? "checkmark" : "")
+                        .foregroundColor(Color(red: 0.2, green: 0.29, blue: 0.11))
                 }
                 .onTapGesture {
                     withAnimation{

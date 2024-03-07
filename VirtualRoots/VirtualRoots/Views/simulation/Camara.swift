@@ -14,54 +14,57 @@ struct CamaraSimulation: View {
     @State private var isAddMode: Bool = true  // Estado para controlar si estamos en modo de agregar o mover
     @State private var deleteAll: Bool = false
     @State private var modelScale: CGFloat = 0.05 // Valor inicial del tamaño del modelo
-
+    @State private var isLoading = true
     var body: some View {
         ZStack{
-            ARViewContainer(isAddMode: $isAddMode, deleteAll: $deleteAll, modelScale: $modelScale).edgesIgnoringSafeArea(.all)
-            
-            VStack{
-                // Coloca un Spacer primero para empujar todo hacia abajo
+
+            ARViewContainer(isAddMode: $isAddMode, deleteAll: $deleteAll, modelScale: $modelScale, isLoading: $isLoading).edgesIgnoringSafeArea(.all)
                 
-                Text("Bienvenido a la Realidad Aumentada")
-                    .padding()
-                    .background(Color.black.opacity(0.7))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding()
-                
-                Button(action: {
-                    // Cambia el modo entre agregar y mover
-                    self.isAddMode.toggle()
-                }) {
-                    Text(isAddMode ? "Cambiar a Mover" : "Cambiar a Agregar")
-                        .foregroundColor(.blue)
+                VStack{
+                    // Coloca un Spacer primero para empujar todo hacia abajo
+                    
+                    Text("Bienvenido a la Realidad Aumentada")
                         .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.blue, lineWidth: 2)
-                        )
-                }
-                
-                // Puedes poner otro Spacer aquí si quieres que el botón de cambio y el texto estén más centrados
-                Spacer()
-                Slider(value: $modelScale, in: 0.01...0.1) // Ajusta el rango según sea necesario
-                    .padding()
-                HStack{
+                        .background(Color.black.opacity(0.7))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding()
+                    
                     Button(action: {
-                        // Eliminar todos los modelos de la vista
-                        self.deleteAll.toggle()
+                        // Cambia el modo entre agregar y mover
+                        self.isAddMode.toggle()
                     }) {
-                        Text("Eliminar todos")
-                            .foregroundColor(.red)
+                        Text(isAddMode ? "Cambiar a Mover" : "Cambiar a Agregar")
+                            .foregroundColor(.blue)
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.red, lineWidth: 2)
+                                    .stroke(Color.blue, lineWidth: 2)
                             )
-                    }.padding()
-                 
-                }// Asegura que el botón "Eliminar todos" tenga algo de espacio en la parte inferior
-            }
+                    }
+                    
+                    // Puedes poner otro Spacer aquí si quieres que el botón de cambio y el texto estén más centrados
+                    Spacer()
+                    Slider(value: $modelScale, in: 0.01...0.1) // Ajusta el rango según sea necesario
+                        .padding()
+                    HStack{
+                        Button(action: {
+                            // Eliminar todos los modelos de la vista
+                            self.deleteAll.toggle()
+                        }) {
+                            Text("Eliminar todos")
+                                .foregroundColor(.red)
+                                .padding()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.red, lineWidth: 2)
+                                )
+                        }.padding()
+                     
+                    }// Asegura que el botón "Eliminar todos" tenga algo de espacio en la parte inferior
+                }
+            
+            
         }
     }
 }
@@ -70,7 +73,7 @@ struct ARViewContainer: UIViewRepresentable {
     @Binding var isAddMode: Bool  // Estado proveniente de ContentView
     @Binding var deleteAll: Bool
     @Binding var modelScale: CGFloat
-    
+    @Binding var isLoading: Bool
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
         // Configuraciones de la sesión de AR
@@ -81,6 +84,10 @@ struct ARViewContainer: UIViewRepresentable {
         // Añadir el reconocedor de toques
         let tapGestureRecognizer = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap))
         arView.addGestureRecognizer(tapGestureRecognizer)
+        
+//DispatchQueue.main.async {
+            //       self.isLoading = false
+            //   }
         
         return arView
     }
@@ -101,7 +108,7 @@ struct ARViewContainer: UIViewRepresentable {
         var deleteAll: Bool
         var modelScale: CGFloat
         var lastAnchor: AnchorEntity? // Referencia al último AnchorEntity añadido
-        let plant: String = "smallPlantTest.usdz"
+        let plant: String = "grownCacaoTree.usdz"
 
         init(arView: ARViewContainer, isAddMode: Bool, deleteAll: Bool, modelScale: CGFloat) {
             self.arViewContainer = arView
