@@ -2,118 +2,206 @@
     {
         "id": 1,
         "name": "Corn",
+        "scientific_name" : "Zea mays",
+        "temperature" : "26.7 a 29.4 °C",
+        "temperature_img" : "temp_medium",
         "description": "A cereal plant that yields large grains, or kernels, set in rows on a cob.",
-        "image": "maiz"
+        "image": "maiz",
+        "etapas" : [
+            {
+                "id": 1,
+                "tiempo": "1 año",
+                "imagen" : "maiz_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 2,
+                "tiempo": "2 año",
+                "imagen" : "maiz_2",
+                "water" : "20 a 33 mm"
+            },{
+                "id": 3,
+                "tiempo": "3 año",
+                "imagen" : "maiz_3",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 4,
+                "tiempo": "4 año",
+                "imagen" : "maiz_4",
+                "water" : "20 a 33 mm"
+            }
+        ]
     },
     {
         "id": 2,
         "name": "Rambutan",
+        "scientific_name" : "Nephelium lappaceum",
+        "temperature" : "20 a 25 °C",
+        "temperature_img" : "temp_high",
         "description": "The rambutan is a tropical fruit native to Southeast Asia. It is similar in appearance to lychee, with a hairy outer skin and sweet, juicy flesh inside. The fruit is typically red or yellow when ripe and is enjoyed fresh or used in various culinary dishes and beverages.",
-        "image": "rambutan"
+        "image": "rambutan",
+        "etapas" : [
+            {
+                "id": 1,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 2,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },{
+                "id": 3,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 4,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            }
+        ]
     },
     {
         "id": 3,
         "name": "Cacao",
+        "scientific_name" : "Theobroma cacao",
+        "temperature" : "22 a 26 °C",
+        "temperature_img" : "temp_medium",
         "description": "Base for chocolate production, mainly cultivated in the southeast.",
-        "image": "cacao"
+        "image": "cacao",
+        "etapas" : [
+            {
+                "id": 1,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 2,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },{
+                "id": 3,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 4,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            }
+        ]
+
         
     },
     {
         "id": 4,
         "name": "Banana",
+        "scientific_name" : "Musa × paradisiaca",
+        "temperature" : "26 a 27 °C",
+        "temperature_img" : "temp_medium",
         "description": "Fruit widely consumed and cultivated, especially in southern Mexico.",
-        "image": "banana"
+        "image": "banana",
+        "etapas" : [
+            {
+                "id": 1,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 2,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },{
+                "id": 3,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 4,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            }
+        ]
+
         
     },
     {
         "id": 5,
         "name": "Papaya",
+        "scientific_name" : "Carica papaya",
+        "temperature" : "20 a 22 °C",
+        "temperature_img" : "temp_low",
         "description": "Tropical fruit cultivated on the coasts, popular in the local diet.",
-        "image": "papaya"
+        "image": "papaya",
+        "etapas" : [
+            {
+                "id": 1,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 2,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },{
+                "id": 3,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 4,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            }
+        ]
+
         
     },
     {
         "id": 6,
         "name": "Mango",
+        "scientific_name" : "Mangifera indica",
+        "temperature" : "22 a 27 °C",
+        "temperature_img" : "temp_low",
         "description": "Very popular tropical fruit widely cultivated in various regions of the country.",
-        "image": "mango"
-    },
-    {
-        "id": 8,
-        "name": "Nopal",
-        "description": "Edible cactus widely used in Mexican cuisine, symbolizing national culture.",
-        "image": "nopal"
-    },
-    {
-        "id": 9,
-        "name": "Chili",
-        "description": "An indispensable element in Mexican cuisine, with a wide variety of cultivated species.",
-        "image": "chili"
-    },
-    {
-        "id": 10,
-        "name": "Coffee",
-        "description": "Mainly cultivated in the southern and southeastern regions, it is an important export product.",
-        "image": "coffee"
-    },
-    {
-        "id": 11,
-        "name": "Sugarcane",
-        "description": "An important crop in sugar production and other by-products.",
-        "image": "sugarcane"
-    },
-    {
-        "id": 12,
-        "name": "Lemon",
-        "description": "Citrus fruit widely used in Mexican cuisine and beverages.",
-        "image": "lemon"
-    },
-    {
-        "id": 13,
-        "name": "Tomato",
-        "description": "Known locally as 'jitomate', it is widely used in Mexican cuisine.",
-        "image": "tomato"
-    },
-    {
-        "id": 14,
-        "name": "Avocado",
-        "description": "Fruit native to Mexico, essential for gastronomy and highly valued in international markets.",
-        "image": "avocado"
-    },
-    {
-        "id": 15,
-        "name": "Bean",
-        "description": "An essential legume in Mexican cuisine, with various varieties cultivated throughout the country.",
-        "image": "bean"
-    },
-    {
-        "id": 16,
-        "name": "Watermelon",
-        "description": "Seasonal fruit, mainly cultivated in warm climates.",
-        "image": "watermelon"
-    },
-    {
-        "id": 17,
-        "name": "Melon",
-        "description": "Another warm climate fruit, cultivated in various regions of Mexico.",
-        "image": "melon"
-    },
-    {
-        "id": 18,
-        "name": "Papaya",
-        "description": "A smaller variety of papaya, popular in certain areas.",
-        "image": "papaya"
-    },
-    {
-        "id": 19,
-        "name": "Tamarind",
-        "description": "Fruit used in beverages and sweets, popular in various regions.",
-        "image": "tamarind"
-    },
-    {
-        "id": 20,
-        "name": "Guava",
-        "description": "Tropical fruit cultivated in various regions, used in a wide variety of dishes and beverages.",
-        "image": "guava"
+        "image": "mango",
+        "etapas" : [
+            {
+                "id": 1,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },
+            {
+                "id": 2,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            },{
+                "id": 3,
+                "tiempo": "1 año",
+                "imagen" : "corn_1",
+                "water" : "20 a 33 mm"
+            }
+        ]
+
     }
 ]

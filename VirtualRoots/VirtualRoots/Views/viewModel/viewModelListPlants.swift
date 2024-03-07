@@ -13,12 +13,14 @@ class PlantsListViewModel: ObservableObject {
     @Published var isMaximum : Bool = false
     
     init() {
-        if let path = Bundle.main.path(forResource: "plants", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "plants_model", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let loadedPlants = try JSONDecoder().decode([VPlantJson].self, from: data)
                 // Convertir los VPlant decodificados a VPlantModel
                 let plants = loadedPlants.map { Plant(from: $0) }
+                
+                
                 
                 self.listPlants = plants
                 self.list = plants

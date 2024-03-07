@@ -7,18 +7,33 @@
 
 import Foundation
 
+struct PlantStage: Decodable {
+    let id : Int
+    let tiempo : String
+    let imagen : String
+    let water :  String
+}
+
 struct VPlantJson:Decodable {
     let id : Int
     let name : String
+    let scientific_name : String
+    let temperature : String
+    let temperature_img : String
     let description: String
     let image: String
+    let etapas : [PlantStage]
 }
 
 class Plant : ObservableObject {
     let id : Int
     let name : String
+    let scientific_name : String
+    let temperature : String
+    let temperature_img : String
     let description: String
     let image: String
+    let etapas : [PlantStage]
     @Published var isChecked: Bool = false
     
     // Inicializador que toma una estructura VPlant (que se decodifica del JSON)
@@ -27,5 +42,12 @@ class Plant : ObservableObject {
         self.name = vPlant.name
         self.description = vPlant.description
         self.image = vPlant.image
+        self.scientific_name = vPlant.scientific_name
+        self.temperature = vPlant.temperature
+        self.temperature_img = vPlant.temperature_img
+        self.etapas = vPlant.etapas
     }
+    
+
+    
 }

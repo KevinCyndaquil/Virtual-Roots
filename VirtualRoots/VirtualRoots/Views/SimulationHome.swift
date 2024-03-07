@@ -14,6 +14,7 @@ struct SimulationHomeUI: View {
     private var virtualLight = "PlusJakartaSans-Regular_Light"
     @StateObject var plantsViewModel = PlantsViewModel()
     @Binding var navigationPath: NavigationPath
+    @State var indexSelected = 0
     
     public init(navigationPath: Binding<NavigationPath>) {
         _navigationPath = navigationPath
@@ -66,7 +67,7 @@ struct SimulationHomeUI: View {
                 HStack(alignment: .center, spacing: 12) {
                     VStack(alignment: .leading, spacing: 12) {
                         VStack(alignment: .leading, spacing: 0) {
-                            Image("sol")
+                            Image("sol_min")
                                 .frame(width: 24, height: 24)
                             
                         }
@@ -244,6 +245,11 @@ struct SimulationHomeUI: View {
                             }
                             .padding(10)
                             .cornerRadius(10)
+                            .onTapGesture {
+                                indexSelected = model.id
+                                navigationPath.append("Description")
+                    
+                            }
                         }
                     }
                     .padding(10)
@@ -266,6 +272,8 @@ struct SimulationHomeUI: View {
                 ListPlantsUI(navigationPath: $navigationPath, plantsViewModel: plantsViewModel)
             case "Simulation":
                 CamaraSimulation()
+            case "Description":
+                Description(navigationPath: $navigationPath, model: plantsViewModel.plantsFavorite[indexSelected == 0 ? 0 : (indexSelected-1)])
             default:
                 HomeUI() // En caso de que el valor no coincida.
             }
