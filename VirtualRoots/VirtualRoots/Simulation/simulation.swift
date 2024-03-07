@@ -57,7 +57,7 @@ class VRSimulation {
     }
     
     fileprivate func initNodes() {
-        let water: VWater = VWater(quantity: 100.0)
+        /*let water: VWater = VWater(quantity: 100.0)
         let light: VLight = VLight(quantity: 20.0, temperature: VTemperature(quantity: -10))
         
         light.act(action: VRAction.repeat(key: "light-warming-water", duration: 2.0, {
@@ -78,7 +78,7 @@ class VRSimulation {
             print(corn.status)
         })
         
-        nodes.append(contentsOf: [water, light, corn, ground])
+        nodes.append(contentsOf: [water, light, corn, ground])*/
     }
     
     func start() {

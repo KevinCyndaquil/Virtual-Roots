@@ -7,6 +7,46 @@
         "temperature_img" : "temp_medium",
         "description": "A cereal plant that yields large grains, or kernels, set in rows on a cob.",
         "image": "maiz",
+        "ground" : {
+            "name": "Loam soil",
+            "ph": 6.5,
+            "weight": 0.0,
+            "density": 1.3,
+            "temperature" : {
+                "quantity" : 33
+            },
+            "waterPercentageAbsortion": 0.3,
+            "waterFilter": {
+                "quantity": 0.003
+            },
+            "cic": 30,
+            "image" : "franco"
+        },
+        "phases" : [
+            {
+                "id": 1,
+                "name": "VE-V6",
+                "waterConsume": {
+                    "consume": {
+                        "quantity": 2
+                    },
+                    "needed": {
+                        "quantity": 20
+                    }
+                },
+                "lightConsume" : {
+                    "consume" : {
+                        "quantity" : 2,
+                        "temperature"
+                    }
+                    "needed": {
+                        "quantity" : 28
+                    }
+                }
+                
+            },
+            
+        ]
         "etapas" : [
             {
                 "id": 1,
@@ -49,6 +89,21 @@
         "temperature_img" : "temp_high",
         "description": "The rambutan is a tropical fruit native to Southeast Asia. It is similar in appearance to lychee, with a hairy outer skin and sweet, juicy flesh inside. The fruit is typically red or yellow when ripe and is enjoyed fresh or used in various culinary dishes and beverages.",
         "image": "rambutan",
+        "ground" : {
+            "name": "Loam soil",
+            "ph": 6.5,
+            "weight": 0.0,
+            "density": 1.3,
+            "temperature" : {
+                "quantity" : 33
+            },
+            "waterPercentageAbsortion": 0.3,
+            "waterFilter": {
+                "quantity": 0.003
+            },
+            "cic": 30,
+            "image" : "franco"
+        },
         "etapas" : [
             {
                 "id": 1,
@@ -91,6 +146,21 @@
         "temperature_img" : "temp_medium",
         "description": "Base for chocolate production, mainly cultivated in the southeast.",
         "image": "cacao",
+        "ground" : {
+            "name": "Loam silty",
+            "ph": 6.5,
+            "weight": 0.0,
+            "temperature" : {
+                "quantity" : 33
+            },
+            "density": 1.3,
+            "waterPercentageAbsortion": 0.45,
+            "waterFilter": {
+                "quantity": 0.0025
+            },
+            "cic": 20,
+            "image" : "franco_limoso"
+        },
         "etapas" : [
             {
                 "id": 1,
@@ -124,7 +194,7 @@
                 "imagen_plaga" : "elotero"
             }
         ]
-
+        
         
     },
     {
@@ -135,6 +205,21 @@
         "temperature_img" : "temp_medium",
         "description": "Fruit widely consumed and cultivated, especially in southern Mexico.",
         "image": "banana",
+        "ground" : {
+            "name": "Loam clay",
+            "ph": 6.5,
+            "temperature" : {
+                "quantity" : 33
+            },
+            "weight": 0.0,
+            "density": 1.4,
+            "waterPercentageAbsortion": 0.35,
+            "waterFilter": {
+                "quantity": 0.0015
+            },
+            "cic": 40,
+            "image" : "franco_arcilloso"
+        },
         "etapas" : [
             {
                 "id": 1,
@@ -178,6 +263,21 @@
         "temperature_img" : "temp_low",
         "description": "Tropical fruit cultivated on the coasts, popular in the local diet.",
         "image": "papaya",
+        "ground" : {
+            "name": "Loam soil",
+            "ph": 6.5,
+            "weight": 0.0,
+            "density": 1.3,
+            "temperature" : {
+                "quantity" : 33
+            },
+            "waterPercentageAbsortion": 0.3,
+            "waterFilter": {
+                "quantity": 0.003
+            },
+            "cic": 30,
+            "image" : "franco"
+        },
         "etapas" : [
             {
                 "id": 1,
@@ -211,7 +311,7 @@
                 "imagen_plaga" : "elotero"
             }
         ]
-
+        
         
     },
     {
@@ -222,6 +322,21 @@
         "temperature_img" : "temp_low",
         "description": "Very popular tropical fruit widely cultivated in various regions of the country.",
         "image": "mango",
+        "ground" : {
+            "name": "Loam soil",
+            "ph": 6.5,
+            "weight": 0.0,
+            "temperature" : {
+                "quantity" : 33
+            },
+            "density": 1.3,
+            "waterPercentageAbsortion": 0.3,
+            "waterFilter": {
+                "quantity": 0.003
+            },
+            "cic": 30,
+            "image" : "franco"
+        },
         "etapas" : [
             {
                 "id": 1,
@@ -255,6 +370,6 @@
                 "imagen_plaga" : "elotero"
             }
         ]
-
+        
     }
 ]

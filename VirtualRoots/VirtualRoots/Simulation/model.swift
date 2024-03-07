@@ -110,7 +110,7 @@ class VTemperature: VNode, VROperable, Decodable {
      */
     var quantity: CGFloat
     
-    public static let ENVIRONMENT: VTemperature = VTemperature(quantity: 30.0)
+    static var ENVIRONMENT: VTemperature = VTemperature(quantity: 30)
     
     enum CodingKeys: String, CodingKey {
         case quantity
@@ -197,8 +197,8 @@ class VWater: VNode, VROperable, Decodable {
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.quantity = try container.decode(CGFloat.self, forKey: .quantity)
-        self.space = try container.decode(CGFloat.self, forKey: .space)
-        self.temperature = try container.decode(VTemperature.self, forKey: .temperature)
+        self.space = try container.decodeIfPresent(CGFloat.self, forKey: .space) ?? 1.0
+        self.temperature = try container.decodeIfPresent(VTemperature.self, forKey: .temperature) ?? .ENVIRONMENT
     }
     
     init(quantity: CGFloat, space: CGFloat = 1.0, temperature: VTemperature = .ENVIRONMENT) {
@@ -267,22 +267,15 @@ class VWater: VNode, VROperable, Decodable {
 class VLight: VNode, Decodable {
     var quantity: CGFloat
     var temperature: VTemperature
-    var type: LType = .WHITE
-    
-    enum LType: Decodable {
-        case WHITE
-        case BLACK
-    }
-    
+ 
     enum CodingKeys: String, CodingKey {
-        case quantity, temperature, type
+        case quantity, temperature
     }
     
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.quantity = try container.decode(CGFloat.self, forKey: .quantity)
         self.temperature = try container.decode(VTemperature.self, forKey: .temperature)
-        self.type = try container.decode(LType.self, forKey: .type)
     }
     
     init(quantity: CGFloat, temperature: VTemperature) {
@@ -359,6 +352,7 @@ class VGround: VNode, Decodable {
     let name: String
     let ph: CGFloat
     var weight: CGFloat
+    let image : String
     var density: CGFloat {
         didSet { if density == 0 { fatalError("Density of ground must not be zero") } }
     }
@@ -387,10 +381,6 @@ class VGround: VNode, Decodable {
     var nutrients: [VNutrient] = []
     var cic: CGFloat
     
-    public static let SANDY: VGround = VGround(name: "SANDY", ph: 6.0, weight: 0.0, density: 1.4, waterAbsorption: 0.2, waterFilter: VWater(quantity: 0.0055), cic: 5)
-    public static let SILT: VGround = VGround(name: "SILT", ph: 7.0, weight: 0.0, density: 1.2, waterAbsorption: 0.4, waterFilter: VWater(quantity: 0.0022), cic: 15)
-    public static let CLAY: VGround = VGround(name: "CLAY", ph: 7.5, weight: 0.0, density: 1.1, waterAbsorption: 0.6, waterFilter: VWater(quantity: 0.00027), cic: 60)
-    
     enum CodingKeys: CodingKey {
         case name
         case ph
@@ -402,6 +392,7 @@ class VGround: VNode, Decodable {
         case waterHeld
         case nutrients
         case cic
+        case image
     }
     
     required init(from decoder: any Decoder) throws {
@@ -413,12 +404,13 @@ class VGround: VNode, Decodable {
         self.temperature = try container.decode(VTemperature.self, forKey: .temperature)
         self.waterPercentageAbsortion = try container.decode(CGFloat.self, forKey: .waterPercentageAbsortion)
         self.waterFilter = try container.decode(VWater.self, forKey: .waterFilter)
-        self.waterHeld = try container.decode(VWater.self, forKey: .waterHeld)
-        self.nutrients = try container.decode([VNutrient].self, forKey: .nutrients)
+        self.waterHeld = try container.decodeIfPresent(VWater.self, forKey: .waterHeld) ?? VWater(quantity: 0.0)
+        self.nutrients = try container.decodeIfPresent([VNutrient].self, forKey: .nutrients) ?? []
         self.cic = try container.decode(CGFloat.self, forKey: .cic)
+        self.image = try container.decode(String.self, forKey: .image)
     }
     
-    init(name: String, ph: CGFloat, weight: CGFloat, density: CGFloat, waterAbsorption: CGFloat, waterFilter: VWater, cic: CGFloat, temperature: VTemperature = .ENVIRONMENT) {
+    init(name: String, ph: CGFloat, weight: CGFloat, density: CGFloat, waterAbsorption: CGFloat, waterFilter: VWater, cic: CGFloat, temperature: VTemperature, image : String) {
         
         self.name = name
         self.ph = ph
@@ -428,7 +420,7 @@ class VGround: VNode, Decodable {
         self.waterPercentageAbsortion = waterAbsorption
         self.waterFilter = waterFilter
         self.cic = cic
-        
+        self.image = image
         super.init()
         act(action: VRAction.repeat(key: "groundswater-filtering") {
             if self.waterHeld.quantity <= self.waterAbsorption.quantity { return }
@@ -462,7 +454,7 @@ class VGround: VNode, Decodable {
     }
 }
 
-class VPlant: VNode, Decodable {
+class VPlant: VNode, Decodable, ObservableObject {
     
     static func == (lhs: VPlant, rhs: VPlant) -> Bool {
         lhs.name == rhs.name
@@ -646,14 +638,16 @@ class VPlant: VNode, Decodable {
     }
     
     class Phase: Hashable, Decodable {
+        let id : Int
         static func == (lhs: VPlant.Phase, rhs: VPlant.Phase) -> Bool {
-            lhs.name == rhs.name
+            lhs.id == rhs.id
         }
         
-        var hashValue: Int { name.hashValue }
+        
+        var hashValue: Int { id.hashValue }
         
         func hash(into hasher: inout Hasher) {
-            hasher.combine(name.hashValue)
+            hasher.combine(id.hashValue)
         }
         
         let name: String

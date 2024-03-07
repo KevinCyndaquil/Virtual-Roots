@@ -99,7 +99,7 @@ struct Description: View {
                                     .stroke(Color(red: 0.2, green: 0.29, blue: 0.11), lineWidth: 1)
                             )
                             HStack(alignment: .center, spacing: 10) {
-                                Image("franco")
+                                Image(model.ground.image)
                                     .frame(width: 90, height: 90)
                             }
                             .padding(.horizontal, 19)
@@ -158,7 +158,7 @@ struct Description: View {
                                     
                                 }
                                 .padding(10)
-                                .frame(maxWidth: .infinity, alignment: .top)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                                 VStack(alignment: .leading, spacing: 10) {
                                     HStack(alignment: .center, spacing: 20) {
                                         HStack(alignment: .center, spacing: 10) {
