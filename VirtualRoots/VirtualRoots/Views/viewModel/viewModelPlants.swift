@@ -8,5 +8,5 @@
 import Foundation
 
 class PlantsViewModel : ObservableObject{
-    @Published var plantsFavorite: [VPlant] = []
+    @Published var plantsFavorite: [Plant] = []
 }

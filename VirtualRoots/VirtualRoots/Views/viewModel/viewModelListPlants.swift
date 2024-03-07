@@ -8,8 +8,8 @@
 import Foundation
 
 class PlantsListViewModel: ObservableObject {
-    @Published var listPlants: [VPlant]
-    let list : [VPlant]
+    @Published var listPlants: [Plant]
+    let list : [Plant]
     @Published var isMaximum : Bool = false
     
     init() {
@@ -18,7 +18,7 @@ class PlantsListViewModel: ObservableObject {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let loadedPlants = try JSONDecoder().decode([VPlantJson].self, from: data)
                 // Convertir los VPlant decodificados a VPlantModel
-                let plants = loadedPlants.map { VPlant(from: $0) }
+                let plants = loadedPlants.map { Plant(from: $0) }
                 
                 self.listPlants = plants
                 self.list = plants
@@ -35,7 +35,7 @@ class PlantsListViewModel: ObservableObject {
         }
     }
     
-    func updatePlantCheckStatus(from updatedPlants: [VPlant]) {
+    func updatePlantCheckStatus(from updatedPlants: [Plant]) {
             for updatedPlant in updatedPlants {
                 if let index = listPlants.firstIndex(where: { $0.id == updatedPlant.id }) {
                     listPlants[index].isChecked = updatedPlant.isChecked
@@ -65,7 +65,7 @@ class PlantsListViewModel: ObservableObject {
                 }
         }
     
-    func getCheckedPlants() -> [VPlant] {
+    func getCheckedPlants() -> [Plant] {
         return listPlants.filter { $0.isChecked }
     }
     

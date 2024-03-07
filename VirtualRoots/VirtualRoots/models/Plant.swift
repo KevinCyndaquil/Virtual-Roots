@@ -14,7 +14,7 @@ struct VPlantJson:Decodable {
     let image: String
 }
 
-class VPlant : ObservableObject {
+class Plant : ObservableObject {
     let id : Int
     let name : String
     let description: String
