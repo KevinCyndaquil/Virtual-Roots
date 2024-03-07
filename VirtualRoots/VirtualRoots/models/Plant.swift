@@ -12,6 +12,8 @@ struct PlantStage: Decodable {
     let tiempo : String
     let imagen : String
     let water :  String
+    let plaga : String
+    let imagen_plaga : String
 }
 
 struct VPlantJson:Decodable {

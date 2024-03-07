@@ -53,8 +53,7 @@ struct Description: View {
                         VStack(alignment: .leading, spacing: 10) {
                             Text(model.scientific_name)
                                 .font(
-                                    Font.custom("Plus Jakarta Sans", size: 20)
-                                        .weight(.light)
+                                    Font.custom(virtualLight, size: 20)
                                 )
                                 .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04).opacity(0.5))
                             Text(model.description)
@@ -179,8 +178,7 @@ struct Description: View {
                                         )
                                         Text(model.etapas[index].water)
                                             .font(
-                                                Font.custom("Plus Jakarta Sans", size: 20)
-                                                    .weight(.light)
+                                                Font.custom(virtualLight, size: 20)
                                             )
                                             .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04).opacity(0.5))
                                             .frame(width: 178, alignment: .topLeading)
@@ -204,8 +202,7 @@ struct Description: View {
                                         )
                                         Text("Biofertilization")
                                             .font(
-                                                Font.custom("Plus Jakarta Sans", size: 20)
-                                                    .weight(.light)
+                                                Font.custom(virtualLight, size: 20)
                                             )
                                             .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04).opacity(0.5))
                                             .frame(width: 178, alignment: .topLeading)
@@ -213,7 +210,7 @@ struct Description: View {
                                     .padding(10)
                                     HStack(alignment: .center, spacing: 20) {
                                         HStack(alignment: .center, spacing: 10) {
-                                            Image("abono")
+                                            Image(model.etapas[index].imagen_plaga)
                                                 .frame(width: 71.21212, height: 70)
                                         }
                                         .padding(.horizontal, 19)
@@ -227,10 +224,9 @@ struct Description: View {
                                                 .inset(by: 0.5)
                                                 .stroke(Color(red: 0.2, green: 0.29, blue: 0.11), lineWidth: 1)
                                         )
-                                        Text("plagas")
+                                        Text(model.etapas[index].plaga)
                                             .font(
-                                                Font.custom("Plus Jakarta Sans", size: 20)
-                                                    .weight(.light)
+                                                Font.custom(virtualLight, size: 20)
                                             )
                                             .foregroundColor(Color(red: 0.1, green: 0.16, blue: 0.04).opacity(0.5))
                                             .frame(width: 178, alignment: .topLeading)

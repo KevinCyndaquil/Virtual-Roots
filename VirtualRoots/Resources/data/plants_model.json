@@ -12,24 +12,32 @@
                 "id": 1,
                 "tiempo": "1 año",
                 "imagen" : "maiz_1",
-                "water" : "20 a 33 mm"
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano cogollero",
+                "imagen_plaga" : "cogollero"
             },
             {
                 "id": 2,
                 "tiempo": "2 año",
                 "imagen" : "maiz_2",
-                "water" : "20 a 33 mm"
+                "water" : "20 a 33 mm",
+                "plaga": "Picudo",
+                "imagen_plaga" : "picudo"
             },{
                 "id": 3,
                 "tiempo": "3 año",
                 "imagen" : "maiz_3",
-                "water" : "20 a 33 mm"
+                "water" : "20 a 33 mm",
+                "plaga" : "Araña roja",
+                "imagen_plaga" : "araña"
             },
             {
                 "id": 4,
                 "tiempo": "4 año",
                 "imagen" : "maiz_4",
-                "water" : "20 a 33 mm"
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano elotero",
+                "imagen_plaga" : "elotero"
             }
         ]
     },
@@ -45,25 +53,33 @@
             {
                 "id": 1,
                 "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "imagen" : "maiz_1",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano cogollero",
+                "imagen_plaga" : "cogollero"
             },
             {
                 "id": 2,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "2 año",
+                "imagen" : "maiz_2",
+                "water" : "20 a 33 mm",
+                "plaga": "Picudo",
+                "imagen_plaga" : "picudo"
             },{
                 "id": 3,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "3 año",
+                "imagen" : "maiz_3",
+                "water" : "20 a 33 mm",
+                "plaga" : "Araña roja",
+                "imagen_plaga" : "araña"
             },
             {
                 "id": 4,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "4 año",
+                "imagen" : "maiz_4",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano elotero",
+                "imagen_plaga" : "elotero"
             }
         ]
     },
@@ -79,25 +95,33 @@
             {
                 "id": 1,
                 "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "imagen" : "maiz_1",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano cogollero",
+                "imagen_plaga" : "cogollero"
             },
             {
                 "id": 2,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "2 año",
+                "imagen" : "maiz_2",
+                "water" : "20 a 33 mm",
+                "plaga": "Picudo",
+                "imagen_plaga" : "picudo"
             },{
                 "id": 3,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "3 año",
+                "imagen" : "maiz_3",
+                "water" : "20 a 33 mm",
+                "plaga" : "Araña roja",
+                "imagen_plaga" : "araña"
             },
             {
                 "id": 4,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "4 año",
+                "imagen" : "maiz_4",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano elotero",
+                "imagen_plaga" : "elotero"
             }
         ]
 
@@ -115,28 +139,35 @@
             {
                 "id": 1,
                 "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "imagen" : "maiz_1",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano cogollero",
+                "imagen_plaga" : "cogollero"
             },
             {
                 "id": 2,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "2 año",
+                "imagen" : "maiz_2",
+                "water" : "20 a 33 mm",
+                "plaga": "Picudo",
+                "imagen_plaga" : "picudo"
             },{
                 "id": 3,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "3 año",
+                "imagen" : "maiz_3",
+                "water" : "20 a 33 mm",
+                "plaga" : "Araña roja",
+                "imagen_plaga" : "araña"
             },
             {
                 "id": 4,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "4 año",
+                "imagen" : "maiz_4",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano elotero",
+                "imagen_plaga" : "elotero"
             }
         ]
-
         
     },
     {
@@ -151,25 +182,33 @@
             {
                 "id": 1,
                 "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "imagen" : "maiz_1",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano cogollero",
+                "imagen_plaga" : "cogollero"
             },
             {
                 "id": 2,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "2 año",
+                "imagen" : "maiz_2",
+                "water" : "20 a 33 mm",
+                "plaga": "Picudo",
+                "imagen_plaga" : "picudo"
             },{
                 "id": 3,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "3 año",
+                "imagen" : "maiz_3",
+                "water" : "20 a 33 mm",
+                "plaga" : "Araña roja",
+                "imagen_plaga" : "araña"
             },
             {
                 "id": 4,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "4 año",
+                "imagen" : "maiz_4",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano elotero",
+                "imagen_plaga" : "elotero"
             }
         ]
 
@@ -187,19 +226,33 @@
             {
                 "id": 1,
                 "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "imagen" : "maiz_1",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano cogollero",
+                "imagen_plaga" : "cogollero"
             },
             {
                 "id": 2,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "2 año",
+                "imagen" : "maiz_2",
+                "water" : "20 a 33 mm",
+                "plaga": "Picudo",
+                "imagen_plaga" : "picudo"
             },{
                 "id": 3,
-                "tiempo": "1 año",
-                "imagen" : "corn_1",
-                "water" : "20 a 33 mm"
+                "tiempo": "3 año",
+                "imagen" : "maiz_3",
+                "water" : "20 a 33 mm",
+                "plaga" : "Araña roja",
+                "imagen_plaga" : "araña"
+            },
+            {
+                "id": 4,
+                "tiempo": "4 año",
+                "imagen" : "maiz_4",
+                "water" : "20 a 33 mm",
+                "plaga" : "Gusano elotero",
+                "imagen_plaga" : "elotero"
             }
         ]
 
